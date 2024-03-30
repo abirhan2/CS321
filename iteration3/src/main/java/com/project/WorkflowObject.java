@@ -4,7 +4,8 @@ package com.project;
  * A representation of each Workflow Object in the Workflow Table. 
  * Each object is for one applicant.
  * 
- * 
+ * @author Arron Birhanu, Buckley O'Day, Logan Ericksen
+ * @version 1.0
  */
 public class WorkflowObject {
 
@@ -36,7 +37,7 @@ public class WorkflowObject {
 
         // object is created for approval
         Approve a1 = new Approve(email, formID);
-        
+
         // last is Approval
         if (r1.validateEmail() == true && r1.validateFormID() == true) {
             

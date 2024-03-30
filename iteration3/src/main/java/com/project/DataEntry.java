@@ -2,6 +2,8 @@ package com.project;
 /**
  * A basic implementation of the Data Entry step for the Original Document
  * Return Request Functional Area
+ * @author Arron Birhanu
+ * @version 1.0
  */
 public class DataEntry {
 

@@ -3,6 +3,8 @@ package com.project;
 /**
  * A basic implementation of the Approval step for the Original Document
  * Return Request Functional Area
+ * @author Logan Ericksen
+ * @version 1.0
  */
 public class Approve {
     
