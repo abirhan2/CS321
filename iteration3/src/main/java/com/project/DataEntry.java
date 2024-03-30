@@ -8,8 +8,8 @@ package com.project;
 public class DataEntry {
 
     // attributes that the applicant will input during this step
-    String email;
-    int formID;
+    public String email;
+    public int formID;
 
     /**
      * This method sets the email that they are using.

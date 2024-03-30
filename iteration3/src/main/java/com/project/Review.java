@@ -9,8 +9,8 @@ package com.project;
  */
 public class Review {
 
-    String email;
-    int formID;
+    public String email;
+    public int formID;
 
     /**
      * This is a constructor for an item that has gone through Data Entry.
@@ -29,7 +29,7 @@ public class Review {
      * @return boolean
      */
     public boolean validateEmail() {
-        if (this.email.contains("@") && this.email != null) {
+        if (this.email != null && this.email.contains("@")) {
             return true;
         }
         else {

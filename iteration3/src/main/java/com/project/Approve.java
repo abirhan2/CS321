@@ -9,9 +9,9 @@ package com.project;
 public class Approve {
     
     // relevant attributes for this step 
-    String email;
-    int formID;
-    boolean isApproved;
+    public String email;
+    public int formID;
+    public boolean isApproved;
 
     /**
      * This is a constructor for an item that has gone through Review.
