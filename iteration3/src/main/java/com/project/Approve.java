@@ -31,6 +31,7 @@ public class Approve {
      */
     public boolean approve() {
         // imagine that an email is sent here
+        System.out.println("APPROVED!");
         isApproved = true;
         return isApproved;
     }
