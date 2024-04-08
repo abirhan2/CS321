@@ -7,6 +7,7 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 /**
  * This class contains unit tests for the WorkflowObject 
@@ -31,6 +32,9 @@ public class UnitTests {
     // Workflow Object which 
     WorkflowObject wfo;
 
+    //workflowtable
+    WorkflowTable wft;
+
     // the objects for testing
     @BeforeAll
     public void setup() {
@@ -45,6 +49,10 @@ public class UnitTests {
         a1 = new Approve("test@email.com", 1);
         a2 = new Approve("Invalid Email", -1);
         a3 = new Approve(null, 999);
+    }
+    @BeforeEach
+    public void perTest() {
+        wft = new WorkflowTable();
     }
 
     /*** DATA ENTRY TESTS ***/
@@ -97,5 +105,39 @@ public class UnitTests {
     public void approverRejectTest() {
         assertEquals(false, a2.reject());
         assertEquals(false, a3.reject());
+    }
+
+    //test to ensure that the queue is working in order of ids, not of insertion
+    @Test
+    public void approvalListTest1(){
+        ApprovalItem ai3 = new ApprovalItem(null, 1);
+        ApprovalItem ai1 = new ApprovalItem(null, 2);
+        ApprovalItem ai2 = new ApprovalItem(null, 3);
+
+        wft.addApprovalItem(ai1);
+        wft.addApprovalItem(ai2);
+        wft.addApprovalItem(ai3);
+        
+        Assertions.assertEquals(wft.getNextApprovalItem().getID(), ai3.getID());
+        Assertions.assertEquals(wft.getNextApprovalItem().getID(), ai1.getID());
+        Assertions.assertEquals(wft.getNextApprovalItem().getID(), ai2.getID());
+    }
+
+    //test to ensure that returned items get first priority
+    @Test
+    public void approvalListTest2(){
+        ApprovalItem ai3 = new ApprovalItem(null, 1);
+        ApprovalItem ai1 = new ApprovalItem(null, 2);
+        ApprovalItem ai2 = new ApprovalItem(null, 3);
+        ai3.returned = true;
+
+        wft.addApprovalItem(ai1);
+        wft.addApprovalItem(ai2);
+        wft.addApprovalItem(ai3);
+        
+        
+        Assertions.assertEquals(wft.getNextReviewItem().getID(), ai3.getID());
+        Assertions.assertEquals(wft.getNextReviewItem().getID(), ai1.getID());
+        Assertions.assertEquals(wft.getNextReviewItem().getID(), ai2.getID());
     }
 }

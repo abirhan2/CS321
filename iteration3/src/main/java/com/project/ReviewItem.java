@@ -3,7 +3,7 @@ package com.project;
 
 import java.io.File;
 
-public class ReviewItem extends WorkflowTableItem {
+public class ReviewItem extends WorkflowTableItem implements Comparable<ReviewItem>{
     //true when the item has been returned from approval item because it was denied and needs to be approved again.
     //this is to set a higher priority over other ones
     
@@ -14,12 +14,15 @@ public class ReviewItem extends WorkflowTableItem {
     public void editForm(){
 
     }
-    //when the item is finished with review it will make an approvalitem of the same information
+    /**
+     * method to generate a new approvalitem to be inserted back into the workflowtable
+     * @return an approval item with the same ID and form associated with the application
+     */
     public ApprovalItem genApprovalItem(){
         return null;
     }
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(ReviewItem r) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
     }

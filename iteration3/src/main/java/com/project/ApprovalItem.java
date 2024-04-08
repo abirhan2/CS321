@@ -3,25 +3,44 @@ package com.project;
 
 import java.io.File;
 
-public class ApprovalItem extends WorkflowTableItem{
+/**
+ * object for each approval item that is pending. 
+ * @author  Logan Ericksen
+ * @version 1.0
+ */
+public class ApprovalItem extends WorkflowTableItem implements Comparable<ApprovalItem>{
     boolean approved;
-    public ApprovalItem(File form){
+    /**
+     * constructor that takes in an ID and the file that is associated with the applicant who is waiting for their request to be fullfilled.
+     */
+    public ApprovalItem(File form, int uid){
         approved = false; 
         super.form = form;
+        super.ID = uid;
     }
-    //for when item is approved
-    public void approve(){
-
-    }
-    //for when item is denied
-    public void decline(){
-
-    }
+    /**
+     * 
+     * @param a is the item that is being compared to
+     * @return integer value for comparison to allow sorting 
+     */
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(ApprovalItem a) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+        if(a.returned && this.returned){
+            return ID - a.getID();
+        }
+        if(a.returned == true){
+             System.out.println("IDK");
+            return 1;
+        }
+        if(this.returned){
+            return -1;
+        }
+        return ID - a.getID();
     }
+        
+    
+    
 
     
 }

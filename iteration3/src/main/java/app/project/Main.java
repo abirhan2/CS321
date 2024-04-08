@@ -21,12 +21,26 @@ import javafx.stage.Stage;
 
 import com.project.*;
 
+/**
+ * class for the entry point of the program. This is the first screen that everyone sees before they choose which job is theirs.
+ * This class contains the workflowtable that each of the steps work from. 
+ * sidenote for the future - we may need to learn more about this running multiple times, like if one of each step is active. I personally don't know how that works
+ */
 public class Main extends Application{
     public static WorkflowTable wft; 
+    /**
+     * main method that is the starting point for the program. created the workflow table and launches the gui
+     * @param args not used
+     */
     public static void main(String args[]){
         wft = new WorkflowTable();
         launch();
     }
+    /**
+     * starting point for the gui
+     * there is a button for each of the steps to select which one is yours. 
+     * @param stage is the stage that the user sees.
+     */
     @Override
     public void start(Stage stage) {
         // var javaVersion = SystemInfo.javaVersion();
@@ -42,6 +56,7 @@ public class Main extends Application{
         gridPane.add(button2, 1, 3); 
         gridPane.add(button3, 2, 3);
 
+        //this is how you program what happens when the button is pressed. Able to call stuff from a different class, approvegui is the one that I (logan) will work from
         button3.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
