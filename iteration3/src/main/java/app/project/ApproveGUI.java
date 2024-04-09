@@ -21,7 +21,11 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.awt.Desktop;
 import com.project.*;
 
@@ -59,8 +63,21 @@ public class ApproveGUI {
         TextField display = new TextField("selected job id ");
         gridPane.add(display, 1, 0);
         gridPane.setAlignment(Pos.TOP_CENTER);
+        
+        ApprovalItem a = wft.getNextApprovalItem();
 
-
+        ///applicant info display
+        if (Desktop.isDesktopSupported()) {
+            try {
+                System.out.println("attempting to open pdf");
+                Desktop desktop = Desktop.getDesktop();
+                File myFile = a.viewForm();
+                desktop.open(myFile);
+            } catch (IOException ex) {
+                System.out.println("ERROR OPENING FILE");
+            }
+        } 
+        
         Button abutton = new Button("approve");
         Button dbutton = new Button("deny");
         gridPane.add(abutton, 0, 1);

@@ -4,6 +4,9 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import static javafx.geometry.HPos.RIGHT;
+
+import java.io.File;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -46,6 +49,15 @@ public class Main extends Application{
         // var javaVersion = SystemInfo.javaVersion();
         // var javafxVersion = SystemInfo.javafxVersion();
 
+
+
+        //testing stuff
+        ApprovalItem a = new ApprovalItem(new File("/home/logan/Desktop/School_stuff/cs321/new_repo/CS321/iteration3/src/res/forms/test.txt"), 0);
+        wft.addApprovalItem(a);
+        //delete above
+
+
+        
         Button button1 = new Button("data entry"); 
         Button button2 = new Button("review");
         Button button3 = new Button("approve"); 

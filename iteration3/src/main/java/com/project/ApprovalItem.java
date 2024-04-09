@@ -19,7 +19,7 @@ public class ApprovalItem extends WorkflowTableItem implements Comparable<Approv
         super.ID = uid;
     }
     /**
-     * 
+     * compareto method so that the priorityqueue can keep the list organized
      * @param a is the item that is being compared to
      * @return integer value for comparison to allow sorting 
      */
