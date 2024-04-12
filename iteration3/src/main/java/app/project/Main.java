@@ -52,11 +52,12 @@ public class Main extends Application{
 
 
         //testing stuff
-        ApprovalItem a = new ApprovalItem(new File("/home/logan/Desktop/School_stuff/cs321/new_repo/CS321/iteration3/src/res/forms/test.txt"), 0);
+        ApprovalItem a = new ApprovalItem(new File("/Users/school/Documents/College/CS321/CS321/iteration3/test.txt"), 0);
+        ReviewItem b = new ReviewItem(new File("/Users/school/Documents/College/CS321/CS321/iteration3/test.txt"), 0);
         wft.addApprovalItem(a);
+        wft.addReviewItem(b);
         //delete above
-
-
+        //return;
         
         Button button1 = new Button("data entry"); 
         Button button2 = new Button("review");
@@ -75,6 +76,16 @@ public class Main extends Application{
             public void handle(ActionEvent e) {
                 ApproveGUI g = new ApproveGUI();
                 g.display(stage);
+            }
+        });
+
+        // added for trying if it works on review button
+        button2.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent e) {
+                ReviewGUI g2 = new ReviewGUI();
+                g2.display(stage);
             }
         });
 
