@@ -60,42 +60,48 @@ public class ApproveGUI {
 
         GridPane gridPane = new GridPane();
         gridPane.setMinSize(400, 200);
-        TextField display = new TextField("selected job id ");
-        gridPane.add(display, 1, 0);
-        gridPane.setAlignment(Pos.TOP_CENTER);
-        
+        gridPane.setAlignment(Pos.CENTER);
+
         ApprovalItem a = wft.getNextApprovalItem();
-
-        ///applicant info display
-        if (Desktop.isDesktopSupported()) {
-            try {
-                System.out.println("attempting to open pdf");
-                Desktop desktop = Desktop.getDesktop();
-                File myFile = a.viewForm();
-                desktop.open(myFile);
-            } catch (IOException ex) {
-                System.out.println("ERROR OPENING FILE");
-            }
-        } 
+        if(a==null){
+            Text display = new Text("No jobs available");
+            gridPane.add(display, 1, 0);
+        }
+        else{
+            Text display = new Text("selected job id " + a.getID());
+            gridPane.add(display, 1, 0);
+            ///applicant info display, doesnt work on my ubuntu machine, uncomment for windows
+            // if (Desktop.isDesktopSupported()) {
+            //     try {
+            //         System.out.println("attempting to open pdf");
+            //         Desktop desktop = Desktop.getDesktop();
+            //         File myFile = a.viewForm();
+            //         desktop.open(myFile);
+            //     } catch (IOException ex) {
+            //         System.out.println("ERROR OPENING FILE");
+            //     }
+            // } 
         
-        Button abutton = new Button("approve");
-        Button dbutton = new Button("deny");
-        gridPane.add(abutton, 0, 1);
-        gridPane.add(dbutton, 2, 1);
-        abutton.setOnAction(new EventHandler<ActionEvent>() {
+            Button abutton = new Button("approve");
+            Button dbutton = new Button("deny");
+            gridPane.add(abutton, 0, 1);
+            gridPane.add(dbutton, 2, 1);
+            abutton.setOnAction(new EventHandler<ActionEvent>() {
 
-            @Override
-            public void handle(ActionEvent e) {
-                approvalScreen(stage);
-            }
-        });
-        dbutton.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent e) {
+                    approvalScreen(stage);
+                }
+            });
+            dbutton.setOnAction(new EventHandler<ActionEvent>() {
 
-            @Override
-            public void handle(ActionEvent e) {
-                denyScreen(stage);
+                @Override
+                public void handle(ActionEvent e) {
+                    denyScreen(stage);
+                }
+            });
             }
-        });
+        
 
         var scene = new Scene(gridPane);
         stage.setScene(scene);
@@ -104,16 +110,20 @@ public class ApproveGUI {
 
     public void approvalScreen(Stage stage){
         GridPane gridPane = new GridPane();
+        gridPane.setAlignment(Pos.CENTER);
         gridPane.setMinSize(400, 200);
         TextField display = new TextField("email contents here");
         gridPane.add(display, 0, 0);
 
         Button b = new Button("send email"); 
-        gridPane.add(b, 0, 0);
+        gridPane.add(b, 1, 1);
         b.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent e) {
+                //add ability to send a real email here. For now, it will just print
+                System.out.println(display.getText());
+                //return the requested documents here. I plan on doing this by hashing applicant names to files
                 display(stage);
             }
         });
@@ -124,7 +134,7 @@ public class ApproveGUI {
     public void denyScreen(Stage stage){
         GridPane gridPane = new GridPane();
         gridPane.setMinSize(400, 200);
-        TextField display = new TextField("Item removed and returned for review.");
+        Text display = new Text("Item removed and returned for review.");
         gridPane.add(display, 0, 0);
 
         Button b = new Button("get next job"); 

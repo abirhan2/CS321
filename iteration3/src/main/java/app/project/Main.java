@@ -48,15 +48,6 @@ public class Main extends Application{
     public void start(Stage stage) {
         // var javaVersion = SystemInfo.javaVersion();
         // var javafxVersion = SystemInfo.javafxVersion();
-
-
-
-        //testing stuff
-        ApprovalItem a = new ApprovalItem(new File("/home/logan/Desktop/School_stuff/cs321/new_repo/CS321/iteration3/src/res/forms/test.txt"), 0);
-        wft.addApprovalItem(a);
-        //delete above
-
-
         
         Button button1 = new Button("data entry"); 
         Button button2 = new Button("review");
