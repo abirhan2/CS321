@@ -1,5 +1,8 @@
 package com.project;
 
+
+//may be deleted 
+
 /**
  * A basic implementation of the Approval step for the Original Document
  * Return Request Functional Area
@@ -10,8 +13,7 @@ public class Approve {
     
     // relevant attributes for this step 
     public String email;
-    public int formID;
-    public boolean isApproved;
+    public int curFormID;
 
     /**
      * This is a constructor for an item that has gone through Review.
@@ -21,7 +23,7 @@ public class Approve {
      */
     public Approve(String email, int formID) {
         this.email = email;
-        this.formID = formID;
+        this.curFormID = formID;
     }
 
     /**
@@ -31,8 +33,8 @@ public class Approve {
      */
     public boolean approve() {
         // imagine that an email is sent here
-        isApproved = true;
-        return isApproved;
+        System.out.println("APPROVED!");
+        return true;
     }
 
     /**
@@ -44,7 +46,7 @@ public class Approve {
     public boolean reject() {
         // imagine that it gets sent back to the Reviewer 
         // with higher priority
-        isApproved = false;
-        return isApproved;
+      
+        return false;
     }
 }
