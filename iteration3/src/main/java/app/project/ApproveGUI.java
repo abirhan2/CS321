@@ -35,7 +35,7 @@ public class ApproveGUI {
 
     public void display(Stage stage){
         GridPane gridPane = new GridPane();
-        Button b = new Button("get job"); 
+        Button b = new Button("get job but evil"); 
 
         
         gridPane.add(b, 0, 0);
