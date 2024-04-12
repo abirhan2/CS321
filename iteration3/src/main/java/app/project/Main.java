@@ -69,16 +69,15 @@ public class Main extends Application{
         gridPane.add(button2, 1, 3); 
         gridPane.add(button3, 2, 3);
 
-        //this is how you program what happens when the button is pressed. Able to call stuff from a different class, approvegui is the one that I (logan) will work from
-        button3.setOnAction(new EventHandler<ActionEvent>() {
 
+	button1.setOnAction(new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent e) {
-                ApproveGUI g = new ApproveGUI();
-                g.display(stage);
+                DataEntryGUI d = new DataEntryGUI();
+                d.display(stage);
             }
         });
-
+        
         // added for trying if it works on review button
         button2.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -88,6 +87,18 @@ public class Main extends Application{
                 g2.display(stage);
             }
         });
+        
+        //action for approve button
+        button3.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent e) {
+                ApproveGUI g = new ApproveGUI();
+                g.display(stage);
+            }
+        });
+
+        
 
         var label = new Label("select job");
         var scene = new Scene(gridPane);
