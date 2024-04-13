@@ -48,7 +48,7 @@ public class Main extends Application{
     public void start(Stage stage) {
         // var javaVersion = SystemInfo.javaVersion();
         // var javafxVersion = SystemInfo.javafxVersion();
-
+        
 
 
         //testing stuff
@@ -68,6 +68,15 @@ public class Main extends Application{
         gridPane.add(button2, 1, 3); 
         gridPane.add(button3, 2, 3);
 
+        button1.setOnAction(new EventHandler<ActionEvent>(){
+            @Override
+            public void handle(ActionEvent e) {
+                DataEntryGUI d = new DataEntryGUI();
+                d.display(stage);
+            }
+        });
+
+        
         //this is how you program what happens when the button is pressed. Able to call stuff from a different class, approvegui is the one that I (logan) will work from
         button3.setOnAction(new EventHandler<ActionEvent>() {
 
