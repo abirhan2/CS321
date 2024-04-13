@@ -52,11 +52,12 @@ public class Main extends Application{
 
 
         //testing stuff
-        ApprovalItem a = new ApprovalItem(new File("/home/logan/Desktop/School_stuff/cs321/new_repo/CS321/iteration3/src/res/forms/test.txt"), 0);
+        ApprovalItem a = new ApprovalItem(new File("/Users/school/Documents/College/CS321/CS321/iteration3/test.txt"), 0);
+        ReviewItem b = new ReviewItem(new File("/Users/school/Documents/College/CS321/CS321/iteration3/test.txt"), 0);
         wft.addApprovalItem(a);
+        wft.addReviewItem(b);
         //delete above
-
-
+        //return;
         
         Button button1 = new Button("data entry"); 
         Button button2 = new Button("review");
@@ -68,16 +69,36 @@ public class Main extends Application{
         gridPane.add(button2, 1, 3); 
         gridPane.add(button3, 2, 3);
 
+<<<<<<< HEAD
         button1.setOnAction(new EventHandler<ActionEvent>(){
+=======
+
+	button1.setOnAction(new EventHandler<ActionEvent>(){
+>>>>>>> 6e91c6813befd78775a483e80181992207d21fc5
             @Override
             public void handle(ActionEvent e) {
                 DataEntryGUI d = new DataEntryGUI();
                 d.display(stage);
             }
         });
+<<<<<<< HEAD
 
         
         //this is how you program what happens when the button is pressed. Able to call stuff from a different class, approvegui is the one that I (logan) will work from
+=======
+        
+        // added for trying if it works on review button
+        button2.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent e) {
+                ReviewGUI g2 = new ReviewGUI();
+                g2.display(stage);
+            }
+        });
+        
+        //action for approve button
+>>>>>>> 6e91c6813befd78775a483e80181992207d21fc5
         button3.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -86,6 +107,8 @@ public class Main extends Application{
                 g.display(stage);
             }
         });
+
+        
 
         var label = new Label("select job");
         var scene = new Scene(gridPane);

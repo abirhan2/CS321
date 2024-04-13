@@ -34,7 +34,8 @@ public class WorkflowTable {
      * Will be inserted into the reviewList priorirty queue.
      * @param item is what is to be inserted
      */
-    public void addReviewItem(Object item){
+    public void addReviewItem(ReviewItem item){
+        reviewList.add(item);
         System.out.println("Test");
     }
     /**
@@ -50,7 +51,10 @@ public class WorkflowTable {
      * @return head of the reviewList priority queue, and dequeues it
      */
     public ReviewItem getNextReviewItem(){
-        return null;
+        if (reviewList.size()==0){
+            return null;
+        }
+        return reviewList.poll();
     }
     /**
      * getter for the head of the approvalItemList, returns head of the approvalItemList and dequeues it. 
