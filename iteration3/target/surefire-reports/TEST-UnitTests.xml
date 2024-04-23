@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="UnitTests" time="0.058" tests="8" errors="1" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="UnitTests" time="0.059" tests="8" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="19"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-19\bin"/>
-    <property name="sun.java.command" value="C:\Users\aaron\AppData\Local\Temp\surefire1680532690489497653\surefirebooter-20240412190738603_3.jar C:\Users\aaron\AppData\Local\Temp\surefire1680532690489497653 2024-04-12T19-07-38_466-jvmRun1 surefire-20240412190738603_1tmp surefire_0-20240412190738603_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\aaron\AppData\Local\Temp\surefire364565627379448366\surefirebooter-20240412201914116_3.jar C:\Users\aaron\AppData\Local\Temp\surefire364565627379448366 2024-04-12T20-19-13_973-jvmRun1 surefire-20240412201914116_1tmp surefire_0-20240412201914116_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\aaron\OneDrive\Documents\CS321Project\CS321\CS321\iteration3\target\test-classes;C:\Users\aaron\OneDrive\Documents\CS321Project\CS321\CS321\iteration3\target\classes;C:\Users\aaron\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.0\junit-jupiter-api-5.8.0.jar;C:\Users\aaron\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\aaron\.m2\repository\org\junit\platform\junit-platform-commons\1.8.0\junit-platform-commons-1.8.0.jar;C:\Users\aaron\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\aaron\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.0\junit-jupiter-engine-5.8.0.jar;C:\Users\aaron\.m2\repository\org\junit\platform\junit-platform-engine\1.8.0\junit-platform-engine-1.8.0.jar;C:\Users\aaron\.m2\repository\org\openjfx\javafx-controls\11\javafx-controls-11.jar;C:\Users\aaron\.m2\repository\org\openjfx\javafx-controls\11\javafx-controls-11-win.jar;C:\Users\aaron\.m2\repository\org\openjfx\javafx-graphics\11\javafx-graphics-11.jar;C:\Users\aaron\.m2\repository\org\openjfx\javafx-graphics\11\javafx-graphics-11-win.jar;C:\Users\aaron\.m2\repository\org\openjfx\javafx-base\11\javafx-base-11.jar;C:\Users\aaron\.m2\repository\org\openjfx\javafx-base\11\javafx-base-11-win.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\aaron\AppData\Local\Temp\surefire1680532690489497653\surefirebooter-20240412190738603_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\aaron\AppData\Local\Temp\surefire364565627379448366\surefirebooter-20240412201914116_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="19.0.1+10-21"/>
@@ -58,13 +58,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="63.0"/>
   </properties>
-  <testcase name="approvalListTest1" classname="UnitTests" time="0.021">
+  <testcase name="approvalListTest1" classname="UnitTests" time="0.019">
     <system-out><![CDATA[Test
 Test
 Test
 ]]></system-out>
   </testcase>
-  <testcase name="approvalListTest2" classname="UnitTests" time="0.003">
+  <testcase name="approvalListTest2" classname="UnitTests" time="0.004">
     <error message="Cannot invoke &quot;com.project.ReviewItem.getID()&quot; because the return value of &quot;com.project.WorkflowTable.getNextReviewItem()&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot invoke "com.project.ReviewItem.getID()" because the return value of "com.project.WorkflowTable.getNextReviewItem()" is null
 	at UnitTests.approvalListTest2(UnitTests.java:139)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
@@ -146,8 +146,8 @@ Test
 ]]></system-out>
   </testcase>
   <testcase name="dataEntrySetEmailTest" classname="UnitTests" time="0.001"/>
-  <testcase name="reviewerValidateEmailTest" classname="UnitTests" time="0.0"/>
-  <testcase name="approverRejectTest" classname="UnitTests" time="0.0"/>
-  <testcase name="dataEntrySetFormIDTest" classname="UnitTests" time="0.0"/>
-  <testcase name="reviewerValidateFormIDTest" classname="UnitTests" time="0.0"/>
+  <testcase name="reviewerValidateEmailTest" classname="UnitTests" time="0.001"/>
+  <testcase name="approverRejectTest" classname="UnitTests" time="0.001"/>
+  <testcase name="dataEntrySetFormIDTest" classname="UnitTests" time="0.001"/>
+  <testcase name="reviewerValidateFormIDTest" classname="UnitTests" time="0.001"/>
 </testsuite>
