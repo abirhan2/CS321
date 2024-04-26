@@ -103,13 +103,8 @@ public class DataEntryGUI {
             @Override
             public void handle(ActionEvent e) {
                 data.setEmail(email.getText());
-                if( data.email==null ||  !(data.email.contains("@")) ){
-                    invalidScreen(stage);//call invalidScreen if login credentials are faulty
-                }
-                else{
-                    data.setID(new WorkflowTable().getID());
-                    submitScreen(stage, data.email);//call submitScreen if the login credentials are valid
-                }
+                data.setID(new WorkflowTable().getID());
+                submitScreen(stage, data.email);//call submitScreen when entered
             }
         });//submit button enters data into the system and gets verified before entering the review process
 
@@ -177,32 +172,4 @@ public class DataEntryGUI {
         stage.show();
     }
 
-    public void invalidScreen(Stage stage){
-        GridPane gridPane = new GridPane();
-        Label l = new Label("Invalid Email. Please try again.");
-        Button b = new Button("Return to login"); 
-        l.setAlignment(Pos.CENTER);
-        b.setAlignment(Pos.CENTER);
-
-        
-        gridPane.add(b, 0, 5);
-        gridPane.add(l, 0, 0);
-
-        gridPane.setMinSize(400, 200);
-        gridPane.setAlignment(Pos.CENTER);
-        //elements of the invalidScreen function's interface
-
-        b.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent e) {
-                jobScreen(stage);//try again and call jobScreen
-            }
-        });//indicates invalid information has been entered
-        
-        
-        var scene = new Scene(gridPane);
-        stage.setScene(scene);
-        stage.show();
-    }
 }
