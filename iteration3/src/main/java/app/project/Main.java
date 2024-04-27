@@ -25,6 +25,12 @@ import javafx.stage.Stage;
 import com.project.*;
 
 /**
+ * main class for the program
+ * @author Arron Birhanu, Buckley O'Day, Logan Ericksen
+ * @version 1.0
+ */
+
+/**
  * Class for the entry point of the program. This is the first screen that everyone sees before they choose which job is theirs.
  * This class contains the WorkflowTable that each of the steps work from. 
  */

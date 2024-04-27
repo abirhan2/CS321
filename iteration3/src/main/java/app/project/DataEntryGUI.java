@@ -32,6 +32,12 @@ import java.awt.Desktop;
 import com.project.*;
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * Data Entry GUI for the program
+ * @author Arron Birhanu
+ * @version 1.0
+ */
+
 //DataEntryGUI Class
 public class DataEntryGUI {
     static WorkflowTable wft = Main.wft;

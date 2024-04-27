@@ -15,6 +15,12 @@ import javafx.stage.Stage;
 import com.project.*;
 
 /**
+ * ReviewGUI Implementation
+ * @author Buckley O'Day
+ * @version 1.0
+ */
+
+/**
  * The class for the GUI for the Review WorkflowStep.
  */
 public class ReviewGUI {

@@ -29,6 +29,11 @@ import java.io.IOException;
 import java.awt.Desktop;
 import com.project.*;
 
+/**
+ * ApproveGUI for the program
+ * @author Logan Ericksen
+ * @version 1.0
+ */
 public class ApproveGUI {
     
     static WorkflowTable wft = Main.wft;
