@@ -1,5 +1,4 @@
 package com.project;
-//import com.WorkflowTableItem;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -7,22 +6,40 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.Normalizer.Form;
 
+/**
+ * This class is for the Review Item for the Review stage.
+ * 
+ * @author Buckley O'Day
+ * @version 1.0
+ */
 public class ReviewItem extends WorkflowTableItem implements Comparable<ReviewItem>{
-    //true when the item has been returned from approval item because it was denied and needs to be approved again.
-    //this is to set a higher priority over other ones
-    boolean approved = false;
-    PrintWriter pw = null;
+    
+    // this boolean will signify whether a form has been sent back by the approver,
+    // in which case it will have higher priority
+    boolean approved;
 
     /**
-     * constructor that takes in an ID and the file that is associated with the applicant who is waiting for their request to be fullfilled.
+     * A constructor for the Review Item.
+     * 
+     * @param form The form being used.
+     * @param uid The form's uID.
      */
     public ReviewItem(String email, int uid){
-        super.email = email;
         super.ID = uid;
+        super.email = email;
+        this.approved = false;
     }
-
     
-/**
+    /**
+     * This method sets the email.
+     * 
+     * @param email The new email.
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    /**
      * The overriden compareTo method so that the Priority Queue 
      * for Review Items stays organized
      * @param item The other Review item that is being compared to.
@@ -47,4 +64,3 @@ public class ReviewItem extends WorkflowTableItem implements Comparable<ReviewIt
         return ID - item.getID();
     }
 }
-

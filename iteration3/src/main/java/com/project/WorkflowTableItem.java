@@ -12,7 +12,7 @@ public abstract class WorkflowTableItem{
      */
     protected int ID;
     /**
-     * File attatched to an item that is associated with the immigrant applying for theiir form
+     * String with the applicant's email.
      */
     protected String email;
     /**
@@ -26,6 +26,15 @@ public abstract class WorkflowTableItem{
     public int getID(){
         return ID;
     }
+
+    /**
+     * getter for the ID
+     * @return email field
+     */
+    public String getEmail(){
+        return email;
+    }
+
     /**
      * The objects need to be able to be compared so that they are sorted correctly.
      * cnsult ApprovalItem if you want to see what this looks like. This method doesn't actually do anything and can be deleted
@@ -34,6 +43,5 @@ public abstract class WorkflowTableItem{
     public int compareTo(){
         return -1;
     }
-
 
 }

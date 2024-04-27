@@ -87,7 +87,7 @@ public class Main extends Application{
         });
 
         
-
+        // Reveal the Stage of the Main Window
         var label = new Label("Select Job");
         var scene = new Scene(gridPane);
         stage.setScene(scene);

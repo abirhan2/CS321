@@ -104,6 +104,7 @@ public class DataEntryGUI {
             public void handle(ActionEvent e) {
                 data.setEmail(email.getText());
                 data.setID(wft.getID());
+                wft.addReviewItem(new ReviewItem(data.email, data.formID));
                 submitScreen(stage, data.email, data.formID);//call submitScreen if the login credentials are valid
             }
         });//submit button enters data into the system and gets verified before entering the review process

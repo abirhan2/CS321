@@ -1,49 +1,39 @@
 package app.project;
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-import static javafx.geometry.HPos.CENTER;
-import static javafx.geometry.HPos.RIGHT;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
+
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.awt.Desktop;
 import com.project.*;
 
-// just a copy of ApproveGUI for now
+/**
+ * The class for the GUI for the Review WorkflowStep.
+ */
 public class ReviewGUI {
     
+    // for checking the WorkflowTable more easily
     static WorkflowTable wft = Main.wft;
+    ReviewItem test = new ReviewItem("test@email", 1);
 
+    // displays the GUI panel for this step
     public void display(Stage stage){
         GridPane gridPane = new GridPane();
-        Button b = new Button("Get Job"); 
+        Button b = new Button("Get Next Job"); 
 
-        
+        // positions and centers the panel
         gridPane.add(b, 0, 0);
-
         gridPane.setMinSize(400, 200);
         gridPane.setAlignment(Pos.CENTER);
         
+        // action to take when this button is clicked
         b.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -57,46 +47,68 @@ public class ReviewGUI {
         stage.show();
     }
 
+    /**
+     * This method opens a new panel and selects the next Review Item.
+     * @param stage The GUI component of this method.
+     * @return void
+     */
     public void jobScreen(Stage stage){
 
+        // for testing
+        // wft.addReviewItem(test);
+
+        // fetches the next ReviewItem from the WorkflowTable
+       
+        
+
+        // if there are no items for review, exit back to the main menu
+        if (wft == null) {
+            Main menu = new Main();
+            menu.start(stage);
+        }
+
+        ReviewItem item = wft.getNextReviewItem();
+        
+        
+        // creates and centers the panel
         GridPane gridPane = new GridPane();
         gridPane.setMinSize(400, 200);
-        TextField display = new TextField("Selected Job ID");
+        gridPane.setAlignment(Pos.CENTER);
+
+        // displays the form and its ID
+        if(item == null){
+            Main menu = new Main();
+            menu.start(stage);
+            return;
+        }
+
+        Text display = new Text("Selected Job ID: " + item.getID() + "\n" + "Email: " + item.getEmail());
         gridPane.add(display, 1, 0);
         gridPane.setAlignment(Pos.TOP_CENTER);
         
-        ReviewItem a = wft.getNextReviewItem();
-
-        ///applicant info display
-        if (Desktop.isDesktopSupported()) {
-            try {
-                System.out.println("Attempting to open file...");
-                Desktop desktop = Desktop.getDesktop();
-                File myFile = a.viewForm();
-                desktop.open(myFile);
-            } catch (IOException ex) {
-                System.out.println("ERROR OPENING FILE");
-            }
-        } 
-        
-        Button abutton = new Button("Accept Applicant Form");
-        Button ebutton = new Button("Edit Applicant Form");
+        Button abutton = new Button("Accept Applicant Data");
+        Button ebutton = new Button("Edit Applicant Data");
         
         gridPane.add(abutton, 0, 1);
         gridPane.add(ebutton, 2, 1);
 
+        // for accepting applicant data
         abutton.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent e) {
-                reviewScreen(stage);
+                // adds the ReviewItem to the Approval WorkflowTable
+                wft.addApprovalItem(new ApprovalItem(item.getEmail(), item.getID()));
+                display(stage);
             }
         });
+
+        // for editing applicant data
         ebutton.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent e) {
-                editScreen(stage);
+                editScreen(stage, item);
             }
         });
 
@@ -105,38 +117,30 @@ public class ReviewGUI {
         stage.show();
     }
 
-    public void reviewScreen(Stage stage){
+    /**
+     * A method that allows the Reviewer to edit applicant data.
+     * @param stage
+     */
+    public void editScreen(Stage stage, ReviewItem item){
         GridPane gridPane = new GridPane();
         gridPane.setMinSize(400, 200);
-        TextField display = new TextField("Review the Applicant");
-        gridPane.add(display, 0, 0);
+        gridPane.setAlignment(Pos.TOP_CENTER);
+        Label l = new Label("Edit Applicant Data");
+        l.setAlignment(Pos.CENTER);
 
-        Button b = new Button("Accept the Applicant"); 
-        gridPane.add(b, 0, 0);
+        Button b = new Button("Edit Email"); 
+        gridPane.add(b, 1, 0);
+        TextField newEmail = new TextField();
+        gridPane.add(newEmail, 1, 1);
+
+        // updates the applicant data
         b.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent e) {
-                display(stage);
-            }
-        });
-        var scene = new Scene(gridPane);
-        stage.setScene(scene);
-        stage.show();
-    }
-    public void editScreen(Stage stage){
-        GridPane gridPane = new GridPane();
-        gridPane.setMinSize(400, 200);
-        TextField display = new TextField("Edit Applicant Data");
-        gridPane.add(display, 0, 0);
-
-        Button b = new Button("Edit Form"); 
-        gridPane.add(b, 0, 0);
-
-        b.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent e) {
+                item.setEmail(newEmail.getText()); 
+                // adds the ReviewItem to the Approval WorkflowTable
+                wft.addApprovalItem(new ApprovalItem(item.getEmail(), item.getID()));
                 jobScreen(stage);
             }
         });

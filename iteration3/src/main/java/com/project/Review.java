@@ -52,4 +52,13 @@ public class Review {
             return true;
         }
     }
+
+    /**
+     * This method sets the email.
+     * 
+     * @param email The new email.
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

@@ -13,10 +13,10 @@ public class ApprovalItem extends WorkflowTableItem implements Comparable<Approv
     /**
      * constructor that takes in an ID and the file that is associated with the applicant who is waiting for their request to be fullfilled.
      */
-    public ApprovalItem(File form, int uid){
+    public ApprovalItem(String email, int ID){
         approved = false; 
-        super.form = form;
-        super.ID = uid;
+        super.email = email;
+        super.ID = ID;
     }
     /**
      * compareto method so that the priorityqueue can keep the list organized
