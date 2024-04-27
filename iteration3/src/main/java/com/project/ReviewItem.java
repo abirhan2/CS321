@@ -38,28 +38,29 @@ public class ReviewItem extends WorkflowTableItem implements Comparable<ReviewIt
         }
     }
     
-    /**
-     * compareto method so that the Priority Queue can keep the list organized
-     * @param a is the item that is being compared to
-     * @return integer value for comparison to allow sorting 
+/**
+     * The overriden compareTo method so that the Priority Queue 
+     * for Review Items stays organized
+     * @param item The other Review item that is being compared to.
+     * @return int The value used for sorting.
      */
     @Override
-    public int compareTo(ReviewItem a) {
+    public int compareTo(ReviewItem item) {
         
         // if both have priority since they were rejected from approval
-        if(a.returned && this.returned){
-            return this.ID - a.getID();
+        if((item.returned == true) && (this.returned == true)){
+            return this.ID - item.getID();
         }
-        // if a has priority from being rejected
-        if(a.returned == true){
-            return 1;
+        // if an item has priority from being rejected by the Approver
+        if(item.returned == true){
+            return -1;
         }
         // if the other ReviewItem has priority from being rejected
         if(this.returned){
             return -1;
         }
-        // else return the earliest ID
-        return ID - a.getID();
+        // else sort by ID
+        return ID - item.getID();
     }
 }
 
