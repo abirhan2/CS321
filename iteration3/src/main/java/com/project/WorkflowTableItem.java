@@ -14,7 +14,7 @@ public abstract class WorkflowTableItem{
     /**
      * File attatched to an item that is associated with the immigrant applying for theiir form
      */
-    protected File form;
+    protected String email;
     /**
      * returned boolean so that we know if this is an item that has failed the approval stage, and was returned to be reviewed again. 
      */
@@ -33,13 +33,6 @@ public abstract class WorkflowTableItem{
      */
     public int compareTo(){
         return -1;
-    }
-    /**
-     * getter for the form field above. 
-     * @return form File field
-     */
-    public File viewForm(){
-        return form;
     }
 
 

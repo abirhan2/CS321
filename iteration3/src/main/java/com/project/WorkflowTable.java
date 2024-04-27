@@ -27,7 +27,7 @@ public class WorkflowTable {
     public WorkflowTable(){
         reviewList = new PriorityQueue<>();
         approvalList = new PriorityQueue<>();
-        maxID =0;
+        maxID =1;
     }
     /**
      * method to add a review item into the workflow. 

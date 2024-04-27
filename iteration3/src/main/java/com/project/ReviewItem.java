@@ -16,27 +16,11 @@ public class ReviewItem extends WorkflowTableItem implements Comparable<ReviewIt
     /**
      * constructor that takes in an ID and the file that is associated with the applicant who is waiting for their request to be fullfilled.
      */
-    public ReviewItem(File form, int uid){
-        super.form = form;
+    public ReviewItem(String email, int uid){
+        super.email = email;
         super.ID = uid;
     }
 
-    //idk if this will be needed in the final implimentation, dont worry about it. 
-    public void editForm(Form form){
-        try {
-            FileWriter fw = new FileWriter("test.txt", true);
-            pw = new PrintWriter(fw);
-            // just testing that it writes to a file 
-            fw.write("Testing that I can edit a review form\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        finally {
-            if (pw != null) {
-                pw.close();
-            }
-        }
-    }
     
 /**
      * The overriden compareTo method so that the Priority Queue 
